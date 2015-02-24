@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<article class="UserProfile col-lg-3 col-sm-11 col-md-5 col-xs-12">
+		{% for user in userprofile %}
+			<div class="UserProfileHeader">
+				<h3>Perfil</h3>
+			</div>
+			<figure class="UserProfileLogo">
+				<img src="{{ user.logo.url }}" alt="{{ user }}" />
+			</figure>
+			<div class="UserProfileInformation">
+				<span class="glyphicon glyphicon-user"> Mi Nombre</span>
+				<p class="UserProfileNombre">{{ user }}</p>
+
+				<span class="glyphicon glyphicon-envelope"> Correo Electronico</span>
+				<p class="UserProfileEmail">{{ user.user.email }}</p>
+
+				<span class="glyphicon glyphicon-fire"> Eslogan</span>
+				<p class="UserProfileSlogan">{{ user.eslogan }}</p>
+
+				<span class="glyphicon glyphicon-phone-alt"> Mi Telefono</span>
+				<p class="UserProfileTelefono">{{ user.telefono }}</p>
+
+				<span class="glyphicon glyphicon-globe"> Ciudad</span>	
+				<p class="UserProfileCiudad">{{ user.ciudad }}</p>
+			</div>
+		{% endfor %}
+	</article>
+	<article class="PlatoProfile col-xs-11 col-sm-11 col-md-6 col-lg-8">
+		{% for plato in platos %}
+			
+			<article class="CardsPlatoProfile col-xs-11 col-sm-6 col-md-12 col-lg-6">
+				<div class="CardPlatoProfile">
+					<div class="CardPlatoProfileNombre">
+						<p>{{ plato.nombre }}</p>
+					</div>
+
+					<div class="plato_img">
+						<img src="{{ plato.plato.url }}" 
+							alt="{{ plato.nombre }}">
+					</div>
+
+					<div class="dish-price">
+						<span class="price">${{ plato.precio }}</span>
+					</div>
+				</div>
+			</article>
+
+			{% empty %}	
+			<p>No hay Platos que mostar</p>
+		{% endfor %}
+	</article>
+<footer class="col-lg-12">
+	<p>@Power by Apps and Play</p>
+</footer>
+{% endblock content %}

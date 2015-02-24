@@ -1,0 +1,27 @@
+{% load static from staticfiles %}
+
+<header class="col-lg-12">
+	<a href="{% url 'incio' %}" class="home">
+		<figure class="logo">
+			<img src="{% static 'img/realchef.jpg' %}" alt="RealChef">
+		</figure>
+	</a>
+	<a href="{% url 'platos' %}" class="inicio">
+		<span class="glyphicon glyphicon-home"></span>
+		Inicio
+	</a>
+
+	<a href="{% url 'create' %}" class="AddMenu">
+		<span class="glyphicon glyphicon-open"></span>
+		Subir plato/Menu
+	</a>
+	<a href="{% url 'signin' %}" class="Entra">
+		<span class="glyphicon glyphicon-log-in">
+			Entra
+		</span>
+	</a>
+	<a href="{% url 'signup' %}" class="Unete">
+		<span class="glyphicon glyphicon-edit"></span>
+		Unete
+	</a>
+</header>

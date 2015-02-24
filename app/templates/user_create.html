@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<article class="IniciarSession col-xs-11 col-sm-4 col-md-4 col-lg-6 center">
+		<h2 class="IniciarSessionTitle">
+			Complete {{ user }}
+		</h2>
+		<div class="IniciarSessionDiv">
+			<form method="POST"  enctype="multipart/form-data">
+				{% csrf_token %}
+				<table>
+					{{ form.as_table }}
+				</table>
+				<input type="submit" value="Terminar" class="IniciarSessionBtn">
+			</form>
+		</div>
+	</article>
+<footer class="col-lg-12">
+	<p>@Power by Apps and Play</p>
+</footer>
+{% endblock content %}

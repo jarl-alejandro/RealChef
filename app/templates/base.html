@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	{% load static from staticfiles %}
+	<meta charset="UTF-8">
+	<title>RealChef</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+	<link href="https://chefly.co/favicon.png" rel="shortcut icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<body>
+	{% if is_auth %}
+		{% include "header-user.html" %}
+	{% else %}
+		{% include "header-no-user.html" %}
+	{% endif %}
+
+	<section class="container-fluid">
+		{% block content %}
+		{% endblock content %}
+	</section>
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}">
+	</script>
+	<script type="text/javascript" src="{% static 'js/realchef.js' %}">
+	</script>
+</body>
+</html>

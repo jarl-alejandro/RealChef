@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block content %}
+	<article class="InicioBuscador">
+		<div class="fondo">
+			<!--<img src="{% static 'img/bg-landing.jpg' %}" alt=""  />-->
+			<video autoplay="autoplay" muted="muted" loop="true" preload="auto"
+				<source src="{% static 'medias/video-landing.mp4' %}" type="video/mp4">
+			</video>
+		</div>
+		<div class="IncioBuscarPlato">
+			<div class="IncioBuscarPlatoHeader">
+				<h2 class="HeaderTitle">
+					RealChef
+				</h2>
+				<h3 class="Desc">
+					Ecuentra comida que deseas de manera rapida
+				</h3>
+			</div>
+			<form action="/search/" method="GET">
+				<input type="text" name="q" class="IncioBuscarPlatoInput col-lg-9"
+					placeholder="Introduce un plato que deseas Ejem: Empanadas" />
+				<a>
+					<span class="glyphicon glyphicon-search BuscarIcon">
+					</span>
+				</a>
+			</form>
+		</div>
+	</article>
+	<article class="RealChefDice">
+		<div class="col-sm-3">
+			<span class="iconRealChef glyphicon glyphicon-cutlery"></span>
+			<h2 class="dice">Comida casera</h2>
+			<p class="co">
+				Elige tu tipo de comida favorita (Por ejemplo, Comida Ecuatoriana, Empanada, Pescado,...)
+			</p>
+		</div>
+		<div class="col-sm-3">
+			<span class="iconRealChef glyphicon glyphicon-map-marker"></span>
+			<h2 class="dice">Localización</h2>
+			<p class="co">
+				RealChef te permite localizar cocineros cercanos que coincidan con tus preferencias.
+			</p>
+		</div>
+		<div class="col-sm-3">
+			<span class="iconRealChef glyphicon glyphicon-time"></span>
+			<h2 class="dice">Ahorra tiempo</h2>
+			<p class="co">
+				RealChef te permite ahorrar tiempo y disfrutar de comida, para un ocasión especial o a diario.
+			</p>
+		</div>
+		<div class="col-sm-3">
+			<span class="iconRealChef glyphicon glyphicon-cloud"></span>
+			<h2 class="dice">Basado en Opiniones</h2>
+			<p class="co">
+				Como cocinero, tus clientes te pondrán nota y te comentarán sobre tu servicio.
+			</p>
+		</div>
+	</article>
+	<aricle class="Equipo">
+		<h2 class="EquipoTitle">
+			Equipo
+		</h2>
+		<div class="alejandro col-sm-6">
+			<figure class="teamAlejandro">
+				<img class="avatarTeam" src="{% static 'img/alejandro.jpg' %}" alt="alejandro">
+			</figure>
+			<p class="teamAlejandroNombre">Alejandro Rivas</p>
+			<p class="teamAlejandroCargo">Co-fundador & Developer</p>
+		</div>
+		<div class="adrian">
+			<figure class="teamAdrian">
+				<img class="avatarTeam" src="{% static 'img/adrian.jpg' %}" alt="adrian">
+			</figure>
+			<p class="teamAdrianNombre">Adrian Anchundia</p>
+			<p class="teamAdrianCargo">Co-fundador & UX-UI</p>
+		</div>
+	</aricle>
+{% endblock content %}

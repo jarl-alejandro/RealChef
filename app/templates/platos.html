@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<section class="wrapper row">
+		<!--<p>col s12 m6 l4 panel-default</p>-->
+		{% for plato in platos %}
+
+			<a href="{% url 'plato' plato.pk %}">
+				<article class="cards col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<div class="preview panel card">
+						<div class="nombre_plato">
+							<h5>{{ plato.nombre }}</h5>
+						</div>
+
+						<div class="plato_img">
+							<img src="{{ plato.plato.url }}" 
+								alt="{{ plato.nombre }}">
+						</div>
+
+						<div class="dish-price">
+							<span class="price">${{ plato.precio }}</span>
+						</div>
+
+						<div class="info">
+							<img src="{{ plato.anunciante.logo.url }}" class="avatar">
+							<p class="name_anuncio">{{ plato.anunciante }}</p>
+							<p class="name_ciudad">{{ plato.anunciante.ciudad }}</p>
+						</div>
+					</div>
+				</article>
+			</a>
+
+		{% endfor %}
+	</section>
+<footer class="col-lg-12 lol">
+	<p>@Power by Apps and Play</p>
+</footer>
+{% endblock content %}

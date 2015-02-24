@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block content %}
+
+	<section class="Plato col-xs-12 col-sm-12 col-md-7 col-lg-8">
+		
+		<article class="PlatoContent">
+			<div class="PlatoNombre">
+				<h2 id="platoId" data-id="{{ plato.id }}">{{ plato.nombre }}</h2>
+			</div>
+			<figure class="PlatoImage img-responsive img-dish-cover">
+				<img src="{{ plato.plato.url }}" alt="{{ plato.nombre }}" />
+				<figcaption class="PlatoContentPrecio">
+					<h2 class="PlatoPrecioTotal">${{ plato.precio }} <span>por plato</span>
+					</h2>
+				</figcaption>
+			</figure>
+		</article>
+
+		<article class="PlatoInformation">
+
+			<div class="PlatoDescription col-lg-9">
+				<p>{{ plato.descripcion }}</p>
+			</div>
+		</article>
+	</section>
+
+	<aside class="Anunciante col-xs-12 col-sm-12 col-md-4 col-lg-3">
+		<figure class="AnuncianteLogo">
+			<img src="{{ plato.anunciante.logo.url }}" alt="{{ plato.anunciante }}" />
+		</figure>
+
+		<div class="AnuncianteInfo">
+			<div class="AnuncianteNombre">
+				<h3 class="glyphicon glyphicon-user"> {{ plato.anunciante }}</h3>
+			</div>
+			<p class="AnuncianteTelefono glyphicon glyphicon-phone-alt">
+				{{ plato.anunciante.telefono }}
+			</p><br>
+			<p class="AnuncianteCiudad glyphicon glyphicon-globe">
+				{{ plato.anunciante.ciudad }}
+			</p>
+			<p class="AnuncianteEslogan glyphicon glyphicon-fire">
+				{{ plato.anunciante.eslogan }}
+			</p>
+		</div>
+	</aside>
+
+	<aside class="Calculadora col-xs-12 col-sm-12 col-md-4 col-lg-3">
+		<div class="Calculadoraheader">
+			<h3>Calculadora</h3>
+		</div>
+		<div class="CalculadoraPrecios">
+			{% csrf_token %}
+			<input class="CalculadoraCantidad" id="cantidad" type="number" value="0">
+			<input id="precioCalcular" type="hidden" value="{{ plato.precio }}">
+			<a class="PrecioTotal" id="precioTotal">Precio total</a>
+		</div>
+		<table class="table tabla table-bordered">
+			<tr>
+				<td>Precio del plato</td>
+				<td>$<span id="precio">{{ plato.precio }}</span></td>
+			</tr>
+			<tr>
+				<td>Cantidad</td>
+				<td id="precioObtenido">0</td>
+			</tr>
+		</table>
+	</aside>
+
+	<section class="Comentario col-xs-12 col-sm-12 col-md-7 col-lg-8">
+		<div class="pregunta">
+			<input type="text" class="comentar" id="texto" placeholder="Que te perece este plato" />
+
+			<input type="submit" class="PreguntaComentar" value="comentar" id="comentar" />
+		</div>
+		<div class="comentarios">
+			<ul class="comentarioUl" id="comentarios_ul">
+				{% for comentario in comentarios %}
+					<li class="item">{{ comentario.comentario }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+<footer class="col-lg-12">
+	<p>@Power by Apps and Play</p>
+</footer>
+{% endblock content %}
