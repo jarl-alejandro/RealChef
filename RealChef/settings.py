@@ -67,7 +67,7 @@ DATABASES = {
 """
 import dj_database_url
 
-DATABASES = {'default': dj_database_url.parse('postgres://pqpobabtxivdgq:7X8NijgZTV5pizTvzCXxiSUmft@ec2-107-21-104-188.compute-1.amazonaws.com:5432/d4r10dcq9hqpvm)}
+DATABASES = {'default': dj_database_url.parse('postgres://pqpobabtxivdgq:7X8NijgZTV5pizTvzCXxiSUmft@ec2-107-21-104-188.compute-1.amazonaws.com:5432/d4r10dcq9hqpvm')}
 
 DATABASES['default'] =  dj_database_url.config()
 
