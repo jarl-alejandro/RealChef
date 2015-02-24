@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'RealChef.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -67,10 +67,10 @@ DATABASES = {
 """
 import dj_database_url
 
-DATABASES = {'default': dj_database_url.parse('postgres://gdfuehfprtqyrp:NNXpEesb7XDbaZhrOMeLxQpn65@ec2-54-197-241-82.compute-1.amazonaws.com:5432/ded8nsjhub6igq')}
+DATABASES = {'default': dj_database_url.parse('postgres://pqpobabtxivdgq:7X8NijgZTV5pizTvzCXxiSUmft@ec2-107-21-104-188.compute-1.amazonaws.com:5432/d4r10dcq9hqpvm)}
 
 DATABASES['default'] =  dj_database_url.config()
-"""
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
